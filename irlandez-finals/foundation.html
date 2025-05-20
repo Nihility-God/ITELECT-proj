@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AdoptPet Foundation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    body {
+      background-color: #fffaf5;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    .content-section {
+      margin-top: 120px;
+    }
+
+    .card {
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar {
+      background-color: #f8f9fa !important;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+    }
+
+    .offcanvas-header h5 {
+      font-weight: bold;
+    }
+
+    .btn-outline-primary,
+    .btn-outline-danger {
+      margin-left: 8px;
+    }
+
+    .text-danger {
+      color: #dc3545 !important;
+    }
+
+    .fs-5 {
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+
+    <section>
+      <nav class="navbar bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">PetAdopt</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title">Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <form class="d-flex mt-3" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" />
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item"><a class="nav-link active" href="index.html">HOME</a></li>
+                <li class="nav-item">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      ADOPT OR GET INVOLVED
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="adopting.html">Adopting Pets</a></li>
+                      <li><a class="dropdown-item" href="rescue.html">Animal Shelters & Rescues</a></li>
+                      <li><a class="dropdown-item" href="foundation.html">PetAdopt Foundation</a></li>
+                    </ul>
+                  </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">ALL ABOUT PETS</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="dogs.html">DOGS & PUPPIES</a></li>
+                    <li><a class="dropdown-item" href="cats.html">CATS & KITTENS</a></li>
+                    <li><a class="dropdown-item" href="otherpets.html">OTHER TYPES OF PETS</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link active" href="about.html">ABOUT US</a></li>
+                <li class="nav-item"><a class="nav-link active" href="faqs.html">FAQs</a></li>
+                <li class="nav-item" id="auth-link"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </section>
+  
+ 
+
+  <!-- Content -->
+  <section class="container content-section">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card p-4">
+          <div class="card-body">
+            <h2 class="text-center mb-4">&#128062 The AdoptPet Foundation</h2>
+            <p class="fs-5">
+              The <strong>AdoptPet Foundation</strong> is the heart of our mission — dedicated to improving animal welfare through rescue, rehabilitation, education, and advocacy.
+              We believe that no animal should be abandoned, mistreated, or forgotten, and we work every day to ensure they receive the love and care they deserve.
+            </p>
+            <p class="fs-5">
+              Through generous donations and community support, our foundation funds medical care, rescue missions, spay/neuter programs, and public awareness campaigns to promote responsible pet ownership.
+              We also collaborate with shelters and foster homes to expand our reach and impact.
+            </p>
+            <p class="fs-5">
+              By supporting the AdoptPet Foundation, you're not only helping pets in need — you’re creating a more compassionate world where every animal has a voice and a home.
+            </p>
+            <p class="fs-5 text-center fw-bold text-danger">
+              Rescue. Heal. Empower.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JS Scripts -->
+  <script>
+    function updateAuthLinks() {
+      const authLink = document.getElementById("auth-link");
+      const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+      if (authLink) {
+        if (isLoggedIn) {
+          authLink.innerHTML = `<button class="btn btn-outline-danger" onclick="logout()">Logout</button>`;
+        } else {
+          authLink.innerHTML = `<a href="login.html" class="btn btn-outline-primary">Sign In</a>`;
+        }
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem("loggedIn");
+      alert("Logged Out Successfully!");
+      window.location.href = "login.html";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      updateAuthLinks();
+      const protectedPage = true;
+      if (protectedPage && localStorage.getItem("loggedIn") !== "true") {
+        window.location.href = "login.html";
+      }
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

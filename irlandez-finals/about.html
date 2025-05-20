@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - PetAdopt</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    body {
+      background-color: #fffaf5;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .about-container {
+      max-width: 800px;
+      margin: 100px auto 50px;
+      padding: 32px;
+    }
+
+    .about-card {
+      background-color: #fffdf8;
+      border: 1px solid #ffe0c0;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 32px;
+    }
+
+    .about-title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+      color: #d2691e;
+      margin-bottom: 24px;
+    }
+
+    .about-text {
+      font-size: 17.6px;
+      color: #444;
+      margin-bottom: 16px;
+    }
+
+    .about-quote {
+      font-size: 19.2px;
+      text-align: center;
+      color: #0d6efd;
+      font-weight: bold;
+      margin-top: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar bg-body-tertiary fixed-top shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">PetAdopt</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <form class="d-flex mt-3" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">ADOPT OR GET INVOLVED</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="adopting.html">Adopting Pets</a></li>
+                <li><a class="dropdown-item" href="rescue.html">Animal Shelters & Rescues</a></li>
+                <li><a class="dropdown-item" href="foundation.html">PetAdopt Foundation</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">ALL ABOUT PETS</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="dogs.html">DOGS & PUPPIES</a></li>
+                <li><a class="dropdown-item" href="cats.html">CATS & KITTENS</a></li>
+                <li><a class="dropdown-item" href="otherpets.html">OTHER TYPES OF PETS</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link active" href="about.html">ABOUT US</a></li>
+            <li class="nav-item"><a class="nav-link" href="faqs.html">FAQs</a></li>
+            <li class="nav-item" id="auth-link"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- About Us Content -->
+  <section class="about-container">
+    <div class="about-card">
+      <h2 class="about-title">&#128062; About Us</h2>
+      <p class="about-text">
+        <strong>Welcome to PetAdopt – Where Love Finds a Home</strong><br>
+        At PetAdopt, we believe every pet deserves a loving home and every person deserves the joy of a loyal companion.
+        Our mission is simple: to connect kind-hearted adopters with pets in need — safely, compassionately, and responsibly.
+      </p>
+      <p class="about-text">
+        Founded with a passion for animal welfare, PetAdopt is a trusted platform that brings together shelters,
+        rescue organizations, and individuals looking to rehome pets. Whether you’re looking to adopt a playful puppy,
+        a cuddly kitten, or a senior pet in need of a second chance, PetAdopt is here to help you find your perfect match.
+      </p>
+      <p class="about-text">
+        We’re more than just a website — we’re a community built on care, compassion, and commitment.
+        Our team works tirelessly to ensure that every adoption is a step toward a better life — for both pets and their new families.
+      </p>
+      <p class="about-quote">Because every pet deserves a forever home.</p>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Auth Script -->
+  <script>
+    function updateAuthLinks() {
+      const authLink = document.getElementById("auth-link");
+      const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+      if (authLink) {
+        if (isLoggedIn) {
+          authLink.innerHTML = `<button class="btn btn-outline-danger ms-2" onclick="logout()">Logout</button>`;
+        } else {
+          authLink.innerHTML = `<a href="login.html" class="btn btn-outline-primary ms-2">Sign In</a>`;
+        }
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem("loggedIn");
+      alert("Logged Out Successfully!");
+      window.location.href = "login.html";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      updateAuthLinks();
+      const protectedPage = false; // Not protected for about page
+      if (protectedPage && localStorage.getItem("loggedIn") !== "true") {
+        window.location.href = "login.html";
+      }
+    });
+  </script>
+
+</body>
+</html>

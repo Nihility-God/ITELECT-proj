@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+           background-color:#fffaf5;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .down{
+            margin-top: 200px;
+        }
+</style>
+
+
+</head>
+<body>
+        <section>
+          <nav class="navbar bg-body-tertiary fixed-top">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">PetAdopt</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title">Menu</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <form class="d-flex mt-3" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" />
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">HOME</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          ADOPT OR GET INVOLVED
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="adopting.html">Adopting Pets</a></li>
+                          <li><a class="dropdown-item" href="rescue.html">Animal Shelters & Rescues</a></li>
+                          <li><a class="dropdown-item" href="foundation.html">PetAdopt Foundation</a></li>
+                        </ul>
+                      </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">ALL ABOUT PETS</a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="dogs.html">DOGS & PUPPIES</a></li>
+                        <li><a class="dropdown-item" href="cats.html">CATS & KITTENS</a></li>
+                        <li><a class="dropdown-item" href="otherpets.html">OTHER TYPES OF PETS</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">ABOUT US</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="faqs.html">FAQs</a></li>
+                    <li class="nav-item" id="auth-link"></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+    </section>  
+
+        <section class=" container my-5">
+            <div class="down row justify-content-center">
+              <div class="col-lg-8">
+                <div class="card shadow-lg border-0 rounded-4 p-4">
+                  <div class="card-body">
+                    <h2 class="text-center mb-4">&#128062 Adopting Pets at AdoptPet</h2>
+                    <p class="one">
+                        At <strong>AdoptPet</strong>, we believe every pet deserves a loving home and every person deserves the joy a pet can bring.
+                        Our platform connects compassionate adopters with animals in need—whether you're looking to welcome a playful puppy,
+                        a gentle kitten, or a unique pet like a rabbit or parrot.
+                    </p>
+                    <p class="one">
+                        We’ve made the adoption process simple, transparent, and safe. With detailed pet profiles, verified shelters,
+                and helpful adoption guides, we’re here to help you make a thoughtful and informed decision.
+                    </p>
+                    <p class="one">
+                        Adopting a pet isn’t just about bringing an animal home—it’s about saving a life and gaining a lifelong friend.
+                        Join our community of animal lovers and discover your perfect companion today.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+<script>
+    function updateAuthLinks() {
+      const authLink = document.getElementById("auth-link");
+      const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+      if (authLink) {
+        if (isLoggedIn) {
+          authLink.innerHTML = `<button class="btn btn-outline-danger ms-2" onclick="logout()">Logout</button>`;
+        } else {
+          authLink.innerHTML = `<a href="login.html" class="btn btn-outline-primary ms-2">Sign In</a>`;
+        }
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem("loggedIn");
+      alert("Logged Out Successfully!");
+      window.location.href = "login.html";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      updateAuthLinks();
+      const protectedPage = true;
+      if (protectedPage && localStorage.getItem("loggedIn") !== "true") {
+        window.location.href = "login.html";
+      }
+    });
+  </script>
+```
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</html>

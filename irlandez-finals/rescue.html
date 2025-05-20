@@ -1,60 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PetAdopt</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" />
-
+  <title>Animal Shelters & Rescues</title>
   <style>
     body {
-      margin-top: 80px;
-      background-image: url('dogbg.png');
+      background-color: #fffaf5;
       background-repeat: no-repeat;
-      background-size: cover;
-      
+      background-attachment: fixed;
     }
-
-    .card-container {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      padding: 20px;
-    }
-
-    .pet-card {
-      width: 300px;
-      border: 2px solid black;
-      background-color: rgb(247, 233, 190);
-    }
-
-    .pet-card img {
-      height: 300px;
-      width: 100%;
-      object-fit: cover;
-    }
-
-    .card-body {
-      padding: 15px;
-    }
-
-    .card-body hr {
-      margin: 10px 0;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    .sad{
-        margin-top: 35px;
+    .content-section {
+      margin-top: 120px;
     }
   </style>
 </head>
 <body>
 
-  
+  <!-- Navbar -->
   <nav class="navbar bg-body-tertiary fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">PetAdopt</a>
@@ -100,70 +64,33 @@
     </div>
   </nav>
 
-
-  <section class="card-container">
-
-    <div class="card pet-card">
-      <img src="mallow.jpg" alt="Mall" />
-      <div class="card-body">
-        <h4>Marshmallow</h4>
-        <h6 class="text-muted">Affenpinscher </h6>
-        <hr />
-        <ul>
-          <li>Puupy</li>
-          <li>Male</li>
-          <li>Small</li>
-        </ul>
-        <hr />
-        <p><strong>Health:</strong> Vaccinations up to date, spayed / neutered.</p>
-        <hr />
-        <p class="text-muted">PetAdopt recommends that you always take reasonable security steps before making online payments.</p>
-        <a href="subform.html" class="btn btn-primary">Adopt</a>
-      </div>
-    </div>
-
-    <div class="card pet-card">
-      <img src="pancho.jpg" alt="panch" />
-      <div class="card-body">
-        <h4>Pancho</h4>
-        <h6 class="text-muted">Labrador Retriever</h6>
-        <hr />
-        <ul>
-          <li>Puppy</li>
-          <li>Male</li>
-          <li>Medium</li>
-        </ul>
-        <hr />
-        <p><strong>Health:</strong>Vaccinations up to date, spayed / neutered.</p>
-        <hr />
-        <p class="text-muted">PetAdopt recommends that you always take reasonable security steps before making online payments.</p>
-        <div class="sad">
-            <a href="subform.html" class="btn btn-primary">Adopt</a>
+  <!-- Main Content -->
+  <section class="container content-section">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card shadow-lg border-0 rounded-4 p-4">
+          <div class="card-body">
+            <h2 class="text-center mb-4">&#128062 Animal Shelters & Rescues</h2>
+            <p class="fs-5">
+              At <strong>AdoptPet</strong>, we partner with dedicated animal shelters and rescue organizations across the country to give every pet a second chance at life.
+              These incredible teams work tirelessly to provide food, medical care, and love to animals until they find their forever homes.
+            </p>
+            <p class="fs-5">
+              Whether you’re looking to adopt, volunteer, or support local shelters, we make it easy to connect. Our platform showcases trusted rescue centers that meet our standards for ethical care and responsible adoption practices.
+            </p>
+            <p class="fs-5">
+              Together, we’re building a community that supports not just the animals, but the heroes behind the scenes—the shelter staff, foster families, and volunteers who make it all possible.
+            </p>
+            <p class="fs-5 text-center fw-bold text-success">
+              Support. Rescue. Love.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-
-    <div class="card pet-card">
-      <img src="chocolate.jpg" alt="choco" />
-      <div class="card-body">
-        <h4>Chocolate</h4>
-        <h6 class="text-muted">Affenpinscher </h6>
-        <hr />
-        <ul>
-          <li>Puppy</li>
-          <li>Male</li>
-          <li>Small</li>
-        </ul>
-        <hr />
-        <p><strong>Health:</strong>Vaccinations up to date, spayed / neutered.</p>
-        <hr />
-        <p class="text-muted">PetAdopt recommends that you always take reasonable security steps before making online payments.</p>
-        <a href="subform.html" class="btn btn-primary">Adopt</a>
-      </div>
-    </div>
-
   </section>
 
+  <!-- Scripts -->
   <script>
     function updateAuthLinks() {
       const authLink = document.getElementById("auth-link");
@@ -190,22 +117,7 @@
         window.location.href = "login.html";
       }
     });
-
-  document.getElementById('adoptForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const form = this;
-    if (!form.checkValidity()) {
-      form.classList.add('was-validated');
-    } else {
-      alert("Thank you! Your adoption form has been submitted.");
-      form.reset();
-      form.classList.remove('was-validated');
-    }
-  });
-
   </script>
-
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 </html>
